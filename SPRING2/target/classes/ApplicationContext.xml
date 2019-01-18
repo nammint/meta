@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--  	
+	<bean id="input" class="FileRead">
+		<constructor-arg value="Sample.txt"/>
+	</bean>
+ -->
+<!-- 	
+	<bean id="output" class="FileWrite">
+		<constructor-arg value="Result.txt"/>
+	</bean>
+ -->
+ 	<bean id="input" class="ConsoleRead"/>
+ 	<bean id="count" class="Count"/>
+ 	<bean id="output" class="ConsoleWrite"/> 
+ 
+	<bean id="iofactory" class="IOFactory" init-method="run">
+		<property name="input" ref="input"/>
+		<property name="count" ref="count"/>
+		<property name="output" ref="output"/>
+	</bean>
+	
+</beans>
+
+
