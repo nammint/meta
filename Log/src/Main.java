@@ -12,9 +12,6 @@ public class Main {
 		
 		long end = System.currentTimeMillis();
 		System.out.println("시간 : " + (end - start)/1000.0 + "초");
-		
-		long memory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-		System.out.println("메모리 사용량 : "+ memory/1000);
 	}
 
 }

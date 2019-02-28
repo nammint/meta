@@ -1,7 +1,10 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
 import java.util.ArrayList;
@@ -72,7 +75,7 @@ public class LogReader {
 	public void writeFile(String path,String log) {
 		Writer writer = null;
 		try {
-			writer = new FileWriter(path);
+			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path)));
 			writer.write(log);
 		} catch (Exception e) {
 			e.printStackTrace();
