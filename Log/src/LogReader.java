@@ -80,7 +80,7 @@ public class LogReader {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			try {writer.close();} catch (IOException e) {}
+			try {if(writer==null)writer.close();} catch (IOException e) {}
 		}		
 	}
 	
