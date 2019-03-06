@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -29,6 +30,7 @@ public class LogReader {
 		try {
 			reader = new FileReader(path);
 			br = new BufferedReader(reader);
+			
 			//로그를 라인단위로 가져가 특정 키워드에 따라 flag값을 반환받는다.
 			//로그 중 StopWatch가 검색되었을 때 false를 반환받고 그동안 다른 함수가 실행된다.
 			while((str = br.readLine()) != null) {
@@ -47,7 +49,7 @@ public class LogReader {
 				if(li.checkNull()) {
 					string.append(li.toString()+"\n");
 					ld.setLogdata(li);//첫 번재 파일의 결과값을 파라미터로 보내 두 번째 파일에 들어갈 데이터 값을 계산한다.
-				}
+				}	
 			}
 			
 		} catch (Exception e) {
@@ -75,12 +77,12 @@ public class LogReader {
 	public void writeFile(String path,String log) {
 		Writer writer = null;
 		try {
-			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path)));
+			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path),"UTF-8"));
 			writer.write(log);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			try {if(writer==null)writer.close();} catch (IOException e) {}
+			try {if(writer!=null)writer.close();} catch (IOException e) {}
 		}		
 	}
 	

@@ -12,6 +12,7 @@ public class Main {
 		
 		long end = System.currentTimeMillis();
 		System.out.println("Ω√∞£ : " + (end - start)/1000.0 + "√ ");
+
 	}
 
 }

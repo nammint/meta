@@ -145,7 +145,8 @@ public class LogFactory {//map에 들어있는 객체에 데이터를 세팅하는 과정
 			getInvoking(str);
 		}else if(str.contains("4. Unmarshalling and Send to CmmMod Server")) {
 			getUnmarshalling(str);
-			return true;//4번까지 값을 저장하면 true를 반환하고 StopWahch를 끝마친다.
+		}else if(str.charAt(0)!='-'&&str.charAt(0)!='m') {
+			return true;
 		}
 		return false;
 	}
