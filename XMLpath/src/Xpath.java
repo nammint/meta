@@ -1,4 +1,6 @@
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,7 +63,7 @@ public class Xpath{
 				
 				//5.CREATE FILE
 				source = new DOMSource(xml1);
-				result = new StreamResult(new File("result/T_"+file_num+"_TB.xml"));
+				result = new StreamResult(new OutputStreamWriter(new FileOutputStream("result/T_"+file_num+"_TB.xml"),"UTF-8"));
 				transformer.transform(source, result);
 				map.clear();
 			}
